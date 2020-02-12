@@ -1,0 +1,4 @@
+RewriteEngine on
+
+#rewrite url here
+RewriteRule ^api/login api/user/login.php [nc, l]

@@ -1,0 +1,4 @@
+RewriteEngine On
+
+#rewrite url here
+#RewriteRule ^/ /demo [nc, l]
