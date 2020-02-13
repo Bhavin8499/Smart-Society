@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="home_fragment_menu">
+        <item>Bills</item>
+        <item>Rules</item>
+        <item>Event / Meetings</item>
+        <item>Emergency</item>
+        <item>Contact us</item>
+        <item>Complains</item>
+    </string-array>
+    <integer-array  name="home_fragment_img">
+        <item>@drawable/bills</item>
+        <item>@drawable/rules</item>
+        <item>@drawable/meeting</item>
+        <item>@drawable/emergency</item>
+        <item>@drawable/contact_us</item>
+        <item>@drawable/complain</item>
+    </integer-array>
+</resources>
