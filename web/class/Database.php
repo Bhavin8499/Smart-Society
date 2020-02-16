@@ -7,7 +7,7 @@ class Database
     private $username = "root";
     private $password = "";
     private $host = "localhost";
-    private $database_name = "parked";
+    private $database_name = "smartsociety";
     public $conn;
     public static $dbObj;
     public function __construct()

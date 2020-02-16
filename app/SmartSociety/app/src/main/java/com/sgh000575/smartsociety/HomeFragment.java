@@ -36,16 +36,12 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
         menu = getResources().getStringArray( R.array.home_fragment_menu );
-
         home_rv = view.findViewById( R.id.home_rv );
         society_id = view.findViewById( R.id.society_id );
 
-        home_rv.setLayoutManager(new GridLayoutManager(getActivity(),3));
-
-        home_rv.setAdapter( new HomeRecyclerViewAdapter(getActivity().getApplicationContext(),menu,menu_img) );
-
+        home_rv.setLayoutManager(new GridLayoutManager(getActivity(),2));
+        home_rv.setAdapter( new HomeRecyclerViewAdapter(getActivity().getApplicationContext(),menu,menu_img));
         society_id.setText(getAlphaNumericString(6));
 
         return view;
