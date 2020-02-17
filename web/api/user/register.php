@@ -44,6 +44,24 @@ $args = [
     "role" => $_POST["role"]
 ];
 
+if($_POST["role"] == "Admin"){
+
+    $n=8; 
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
+        $randomString = ''; 
+      
+        for ($i = 0; $i < $n; $i++) { 
+            $index = rand(0, strlen($characters) - 1); 
+            $randomString .= $characters[$index]; 
+        } 
+      
+    $arg1 = ["societyname" => $_POST["societyname"], "user_id" => $affect, "societycode" => $randomString;];
+
+    $db->run_query($arg1, TABLE_SOCIETY);
+    
+    $args["societycode"] = $randomString;
+}
+
 $res = new Response(true, $args);
     echo json_encode($res);
     return;

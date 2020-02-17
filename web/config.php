@@ -7,6 +7,11 @@ define("EVENT_IMAGE_PATH", __DIR__."/images/event/");
 define("BILL_IMAGE_PATH", __DIR__."/images/bills/");
 
 define("TABLE_USER","user");
+define("TABLE_MEMBER","member");
+define("TABLE_SOCIETY","society");
+define("TABLE_MAINTANCE","maintance");
+define("TABLE_PAYMENTINTENT","paymentintent");
+define("TABLE_SECURITYCOMERS","security_comers");
 
 #setting header
 #header("Content-type: application/json; charset=utf-8");
