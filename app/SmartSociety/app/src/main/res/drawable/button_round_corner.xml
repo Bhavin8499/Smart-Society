@@ -2,12 +2,12 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <corners
-        android:radius="1000dp"
+        android:radius="10dp"
         />
     <solid
-        android:color="@color/colorButton"/>
+        android:color="@color/colorPrimaryDark"/>
 
     <padding android:left="12dp" android:right="12dp"></padding>
 
-    <stroke android:color="@android:color/white" android:width="1dp"></stroke>
+    <stroke android:color="@android:color/background_dark" android:width="1dp"></stroke>
 </shape>

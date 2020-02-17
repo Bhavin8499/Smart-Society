@@ -20,7 +20,7 @@
         android:layout_marginRight="30dp"
         android:layout_marginTop="10dp"
         android:hint="demo@demomail.com"
-        android:background="@drawable/round_corner"
+        android:background="@drawable/upperofbackground"
         android:id="@+id/et_login"
         />
     <EditText
@@ -31,7 +31,7 @@
         android:layout_marginRight="30dp"
         android:layout_marginTop="10dp"
         android:hint="********"
-        android:background="@drawable/round_corner"
+        android:background="@drawable/upperofbackground"
         android:inputType="textPassword"
         android:id="@+id/et_password"
         />
@@ -45,7 +45,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="10dp"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/background_dark"
         android:textAllCaps="false"
         />
     <LinearLayout

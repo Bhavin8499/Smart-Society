@@ -19,9 +19,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:itemBackground="@color/colorNavigation"
-        app:itemIconTint="@android:color/holo_blue_bright"
-        app:itemTextColor="@android:color/holo_blue_bright"
+        android:background="@color/colorPrimaryDark"
+        app:itemIconTint="@android:color/background_dark"
+        app:itemTextColor="@android:color/background_dark"
         app:menu="@menu/navigation" />
 
 </LinearLayout>

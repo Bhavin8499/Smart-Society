@@ -24,9 +24,8 @@ public class MainActivity extends AppCompatActivity {
         tvReg.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                //Intent i = new Intent(getApplicationContext(),Register.class);
-                //startActivity( i );
+                Intent i = new Intent(getApplicationContext(),Register.class);
+                startActivity( i );
             }
         } );
 

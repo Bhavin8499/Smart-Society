@@ -1,15 +1,18 @@
 package com.sgh000575.smartsociety;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 
 public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerViewAdapter.MenuViewHolder>
 {
@@ -17,6 +20,7 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
     String[] menu;
     int[] menu_img;
     LayoutInflater inflater;
+    String str_class;
 
     HomeRecyclerViewAdapter(Context context, String []menu, int []meu_img)
     {
@@ -36,11 +40,29 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MenuViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MenuViewHolder holder, final int position) {
 
         holder.menu_img.setImageResource(menu_img[position]);
         holder.menu.setText( menu[position] );
+
+        holder.ll.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //str_class = menu[position]+".class";
+                Toast.makeText( context,str_class ,Toast.LENGTH_LONG).show();
+                try {
+                    Intent i = new Intent( context,Class.forName( "com.sgh000575.smartsociety."+menu[position] ) );
+                    context.startActivity( i );
+
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                    Toast.makeText( context, e.toString(),Toast.LENGTH_LONG).show();
+                }
+
+            }
+        } );
     }
+
 
     @Override
     public int getItemCount() {

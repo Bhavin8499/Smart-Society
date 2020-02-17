@@ -13,7 +13,7 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class DashboardActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener {
+public class DashboardActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener,ProfileFragment.OnFragmentInteractionListener{
 
     Fragment homeFragment,profileFragment, eventFragment, settingFragment, activeFragment;
     FragmentTransaction transaction;
@@ -29,7 +29,7 @@ public class DashboardActivity extends AppCompatActivity implements HomeFragment
         navigationView.setOnNavigationItemSelectedListener(itemSelectedListener);
 
         homeFragment = new HomeFragment();
-        profileFragment = new Fragment();
+        profileFragment = new ProfileFragment();
         eventFragment = new Fragment();
         settingFragment = new Fragment();
 
