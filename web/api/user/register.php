@@ -55,7 +55,7 @@ if($_POST["role"] == "Admin"){
             $randomString .= $characters[$index]; 
         } 
       
-    $arg1 = ["societyname" => $_POST["societyname"], "user_id" => $affect, "societycode" => $randomString;];
+    $arg1 = ["societyname" => $_POST["societyname"], "user_id" => $affect, "societycode" => $randomString];
 
     $db->run_query($arg1, TABLE_SOCIETY);
     

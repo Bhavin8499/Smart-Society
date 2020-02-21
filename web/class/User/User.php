@@ -1,5 +1,3 @@
-<?
-
 <?php
 
 /**
@@ -22,10 +20,9 @@ class User
     {
 
         if (is_array($args)) {
-            $this->user_id = $args["id"];
-            $this->user_name = $args["user_name"];
-            $this->email = $args["email"];
-            $this->phone_no = $args["phone_no"];
+            foreach($args as $key=>$val){
+                $this->$key = $val;
+            } 
         } else {
 
             $qry = "select * from user where id=" . $args;

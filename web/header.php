@@ -9,7 +9,7 @@
 
                             <div class="logo">
                                     <a href="index">
-                                        <img src="img/logo.png" alt="">
+                                        <img src="img/logo.png" style="width:40%;" alt="">
                                     </a>
                                 </div>
                             </div>

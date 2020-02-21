@@ -3,6 +3,8 @@
 include("../../config.php");
 include(CLASS_PATH."user/User.php");
 
+header("Content-type: application/json; charset=utf-8");
+
 $required_params = ["email", "password"];
 
 

@@ -9,19 +9,18 @@ import com.sgh000575.smartsociety.R;
 
 import java.util.Calendar;
 
-public class Add_event extends AppCompatActivity {
+public class AddMaintanceActivity extends AppCompatActivity {
 
-    DatePicker event_date;
+    DatePicker maintencence_date;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
-        setContentView( R.layout.activity_add_event );
+        setContentView( R.layout.activity_add_maintenence );
+
+        maintencence_date =  findViewById( R.id.maintencence_date );
 
         Calendar c = Calendar.getInstance();
 
-        event_date =  findViewById( R.id.event_date );
-
-
-        event_date.setMinDate( c.getTimeInMillis()-1000 );
+        maintencence_date.setMinDate( c.getTimeInMillis()-1000 );
     }
 }

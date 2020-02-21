@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.sgh000575.smartsociety.R;
 
-public class Add_bill extends AppCompatActivity {
+public class AddBillActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

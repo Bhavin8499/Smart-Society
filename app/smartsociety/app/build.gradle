@@ -38,4 +38,5 @@ dependencies {
     compileOnly 'org.glassfish:javax.annotation:10.0-b28'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.android.volley:dc-volley:1.1.0'
 }
