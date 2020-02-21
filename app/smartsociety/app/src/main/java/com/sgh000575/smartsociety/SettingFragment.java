@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 
 public class SettingFragment extends Fragment {
@@ -26,8 +28,21 @@ public class SettingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        View view = inflater.inflate( R.layout.fragment_setting, container, false );
+
+        Button logout = view.findViewById(R.id.btnLogout);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SIModel.getInstance().logoutUser();
+                SettingFragment.this.getActivity().finish();
+                Toast.makeText(getActivity().getApplicationContext(), "Logout Done", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         // Inflate the layout for this fragment
-        return inflater.inflate( R.layout.fragment_setting, container, false );
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

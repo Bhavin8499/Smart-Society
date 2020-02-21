@@ -12,17 +12,20 @@
         android:id="@+id/first_img"
         android:src="@drawable/login_png"
         />
+
     <EditText
+        android:id="@+id/et_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="9dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
         android:layout_marginTop="10dp"
-        android:hint="demo@demomail.com"
+        android:layout_marginRight="30dp"
         android:background="@drawable/upperofbackground"
-        android:id="@+id/et_login"
-        />
+        android:hint="demo@demomail.com"
+        android:inputType="textEmailAddress"
+        android:text="san1@gmail.com"
+        android:padding="9dp"
+        android:singleLine="true" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,6 +36,7 @@
         android:hint="********"
         android:background="@drawable/upperofbackground"
         android:inputType="textPassword"
+        android:text="bhavin8499"
         android:id="@+id/et_password"
         />
     <Button

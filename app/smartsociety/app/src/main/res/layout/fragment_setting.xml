@@ -4,14 +4,49 @@
     android:layout_width="match_parent"
     android:background="@drawable/gradientbackground"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".SettingFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="MCA 4 A HACKATHON"
-        android:textSize="20dp"/>
+        android:text="Setting"
+        android:textSize="40sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="25dp"
+        android:orientation="vertical"
+        >
+
+        <Button
+            android:id="@+id/btnAboutUs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_round_corner"
+            android:text="About Us"
+            android:textSize="22dp"
+            android:textAllCaps="false"
+            android:layout_marginTop="10dp"
+            />
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_round_corner"
+            android:text="Logout"
+            android:textSize="22dp"
+            android:layout_marginTop="10dp"
+            android:textAllCaps="false"
+            />
+
+    </LinearLayout>
 
 </LinearLayout>

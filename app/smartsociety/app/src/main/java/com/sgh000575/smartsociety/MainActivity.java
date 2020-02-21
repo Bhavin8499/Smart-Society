@@ -17,6 +17,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.JsonObject;
+import com.sgh000575.smartsociety.admin.AdminDashboardActivity;
+import com.sgh000575.smartsociety.model.UserModel;
 
 import org.json.JSONObject;
 
@@ -35,6 +37,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SIModel.init(getApplicationContext());
+
+        UserModel model = SIModel.getInstance().isUserAvaliable();
+        if(model != null)
+            loginUser(model);
 
         tvReg = findViewById( R.id.register_tv );
         btnLogin = findViewById( R.id.login_btn );
@@ -62,8 +70,12 @@ public class MainActivity extends AppCompatActivity {
                         try {
                             JSONObject json = new JSONObject(response);
                             if(json.getBoolean("status")){
-                                Intent i = new Intent(getApplicationContext(),DashboardActivity.class);
-                                startActivity( i );
+                                UserModel user = new UserModel(json.getJSONObject("data"));
+                                SIModel.getInstance().saveUser(user);
+
+                                UserModel model = SIModel.getInstance().getUser();
+                                loginUser(model);
+
                             }
                             else{
                                 Toast.makeText(MainActivity.this, "Failed To login please validate your email and password", Toast.LENGTH_SHORT).show();
@@ -98,4 +110,27 @@ public class MainActivity extends AppCompatActivity {
             }
         } );
     }
+
+    private void loginUser(UserModel user){
+
+        try {
+            if(user.getRole().equalsIgnoreCase("Admin")){
+                Intent i = new Intent(getApplicationContext(), AdminDashboardActivity.class);
+                startActivity( i );
+            }
+            else if(user.getRole().equalsIgnoreCase("Security")) {
+                Intent i = new Intent(getApplicationContext(),DashboardActivity.class);
+                startActivity( i );
+            }
+            else{
+                Intent i = new Intent(getApplicationContext(),DashboardActivity.class);
+                startActivity( i );
+            }
+        }
+        catch (Exception e){
+
+        }
+    }
+
+
 }
