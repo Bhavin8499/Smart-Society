@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".admin.Add_bill">
+    tools:context=".admin.Add_event">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,9 +23,10 @@
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:background="@drawable/gradientbackground"
-        android:text="ADD BILL"
+        android:text="ADD EVENT"
         android:gravity="right"
         android:textSize="30dp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/my_tv"
-            android:text="Title:"
+            android:text="Event Title:"
             android:textSize="15dp"
             />
         <EditText
@@ -36,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:hint="Title"
-            android:id="@+id/bill_title"
+            android:id="@+id/event_title"
             style="@style/my_btn"
             />
     </LinearLayout>
@@ -51,7 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/my_tv"
-            android:text="Amount:"
+            android:text="Event Amount:"
             android:textSize="15dp"
             />
         <EditText
@@ -60,7 +69,30 @@
             android:layout_marginTop="10dp"
             android:hint="Amount"
             android:inputType="number"
-            android:id="@+id/bill_amount"
+            android:id="@+id/event_amount"
+            style="@style/my_btn"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:background="@drawable/upperofbackground">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/my_tv"
+            android:text="Organizer Name:"
+            android:textSize="15dp"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Amount"
+            android:id="@+id/event_organizer_name"
             style="@style/my_btn"
             />
     </LinearLayout>
@@ -74,16 +106,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/my_tv"
-            android:text="House No:"
+            android:text="Event Date:"
             android:textSize="15dp"
             />
-        <EditText
+        <DatePicker
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="First Name"
-            android:id="@+id/bill_house_no"
-            style="@style/my_btn"
+            android:padding="10dp"
+            android:id="@+id/event_date"
+            android:spinnersShown="true"
+            android:datePickerMode="spinner"
+
             />
 
     </LinearLayout>
@@ -94,7 +127,7 @@
         android:layout_marginBottom="7dp"
         android:layout_height="wrap_content"
         android:text="ADD"
-        android:id="@+id/add_bill_btn"
+        android:id="@+id/add_event_btn"
         android:layout_gravity="center"
         android:textSize="20dp"
         android:background="@drawable/button_round_corner"
@@ -102,6 +135,6 @@
         android:layout_marginRight="30dp"
         android:textColor="@android:color/background_dark"
         android:textAllCaps="false"
-
         />
 </LinearLayout>
+</ScrollView>

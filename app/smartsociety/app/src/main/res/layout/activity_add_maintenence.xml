@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".admin.Add_bill">
+    tools:context=".admin.Add_maintenence">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:hint="Title"
-            android:id="@+id/bill_title"
+            android:id="@+id/maintenence_title"
             style="@style/my_btn"
             />
     </LinearLayout>
@@ -60,7 +60,7 @@
             android:layout_marginTop="10dp"
             android:hint="Amount"
             android:inputType="number"
-            android:id="@+id/bill_amount"
+            android:id="@+id/maintencence_amount"
             style="@style/my_btn"
             />
     </LinearLayout>
@@ -74,16 +74,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/my_tv"
-            android:text="House No:"
+            android:text="Date:"
             android:textSize="15dp"
             />
-        <EditText
+        <DatePicker
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="First Name"
-            android:id="@+id/bill_house_no"
-            style="@style/my_btn"
+            android:padding="10dp"
+            android:id="@+id/maintencence_date"
+            android:spinnersShown="true"
+            android:datePickerMode="spinner"
+
             />
 
     </LinearLayout>

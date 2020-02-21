@@ -30,15 +30,15 @@ public class DashboardActivity extends AppCompatActivity implements HomeFragment
 
         homeFragment = new HomeFragment();
         profileFragment = new ProfileFragment();
-        eventFragment = new Fragment();
-        settingFragment = new Fragment();
+        eventFragment = new EventFragment();
+        settingFragment = new SettingFragment();
 
 
         transaction = getSupportFragmentManager().beginTransaction();
         manager = getSupportFragmentManager();
 
         manager.beginTransaction().add(R.id.frame_container, profileFragment,"profile").hide(profileFragment).commit();
-        manager.beginTransaction().add(R.id.frame_container, eventFragment,"event").hide(eventFragment).commit();
+        manager.beginTransaction().add(R.id.frame_container, eventFragment,"EventFragment").hide(eventFragment).commit();
         manager.beginTransaction().add(R.id.frame_container, settingFragment,"setting").hide(settingFragment).commit();
         manager.beginTransaction().add(R.id.frame_container, homeFragment,"home").commit();
         activeFragment = homeFragment;
