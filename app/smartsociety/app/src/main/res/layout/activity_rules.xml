@@ -25,6 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/rules_tv"
+            android:layout_margin="10dp"
             style="@style/my_tv"/>
     </LinearLayout>
 </ScrollView>

@@ -21,6 +21,11 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
     int[] menu_img;
     LayoutInflater inflater;
     String str_class;
+    private OnItemClickListner listner;
+
+    public void setListner(OnItemClickListner listner) {
+        this.listner = listner;
+    }
 
     HomeRecyclerViewAdapter(Context context, String []menu, int []meu_img)
     {
@@ -29,6 +34,7 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
         this.context = context;
         inflater = LayoutInflater.from(context);
     }
+
 
 
     @NonNull
@@ -49,7 +55,8 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
             @Override
             public void onClick(View v) {
                 //str_class = menu[position]+".class";
-                Toast.makeText( context,str_class ,Toast.LENGTH_LONG).show();
+                listner.onItemClickHome(position);
+                /*Toast.makeText( context,str_class ,Toast.LENGTH_LONG).show();
                 try {
                     Intent i = new Intent( context,Class.forName( "com.sgh000575.smartsociety."+menu[position] ) );
                     context.startActivity( i );
@@ -57,7 +64,7 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                     Toast.makeText( context, e.toString(),Toast.LENGTH_LONG).show();
-                }
+                }*/
 
             }
         } );
@@ -82,4 +89,9 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
 
         }
     }
+
+    public interface  OnItemClickListner{
+        public void onItemClickHome(int index);
+    }
+
 }

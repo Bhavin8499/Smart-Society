@@ -1,6 +1,7 @@
 package com.sgh000575.smartsociety;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -12,8 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements HomeRecyclerViewAdapter.OnItemClickListner {
 
     private OnFragmentInteractionListener mListener;
 
@@ -42,7 +44,9 @@ public class HomeFragment extends Fragment {
         society_id = view.findViewById( R.id.society_id );
 
         home_rv.setLayoutManager(new GridLayoutManager(getActivity(),2));
-        home_rv.setAdapter( new HomeRecyclerViewAdapter(getActivity().getApplicationContext(),menu,menu_img));
+        HomeRecyclerViewAdapter adapter = new HomeRecyclerViewAdapter(getActivity(),menu,menu_img);
+        adapter.setListner(this);
+        home_rv.setAdapter(adapter);
         society_id.setText(getAlphaNumericString(6));
 
         return view;
@@ -99,5 +103,35 @@ public class HomeFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    @Override
+    public void onItemClickHome(int index) {
+
+        Intent intent = new Intent();
+
+        switch (index){
+            case 0:
+                intent = new Intent(getActivity().getApplicationContext(), Bill.class);
+                break;
+            case 1:
+                intent = new Intent(getActivity().getApplicationContext(), Rules.class);
+                break;
+            case 2:
+                intent = new Intent(getActivity().getApplicationContext(), Rules.class);
+                break;
+            case 3:
+                intent = new Intent(getActivity().getApplicationContext(), Rules.class);
+                break;
+            case 4:
+                intent = new Intent(getActivity().getApplicationContext(), Rules.class);
+                break;
+            case 5:
+                intent = new Intent(getActivity().getApplicationContext(), Rules.class);
+                break;
+        }
+
+        //Toast.makeText(getActivity().getApplicationContext(), ""+index, Toast.LENGTH_SHORT).show();
+        getActivity().startActivity(intent);
     }
 }
