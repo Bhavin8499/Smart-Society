@@ -3,6 +3,7 @@
 header("Content-type: application/json; charset=utf-8");
 include("../../config.php");
 
+
 $required_params = ["name", "email", "password", "phoneno", "role"];
 
 foreach ($required_params as $value) {
@@ -26,10 +27,11 @@ $args = [
 
 $qry = generate_insert_query($args, TABLE_USER);
 $db = Database::getInstance();
-
+$db->set_auto_commit(false);
 $affect = $db->run_query($qry);
 
 if($affect < 1){
+    $db->rollback();
     $res = new Response(false, "Failed to register user");
     echo json_encode($res);
     return;
@@ -61,6 +63,23 @@ if($_POST["role"] == "Admin"){
     
     $args["societycode"] = $randomString;
 }
+elseif ($_POST["role"] == "Customer") {
+    
+    $soc_code = $_POST["societycode"];
+    $qry = "select id from society where societycode='$soc_code'";
+
+    $res = $db->run_query($qry);
+
+    if(!is_array()){
+        $db->rollback();
+    }
+
+
+}
+
+$db->commit();
+$db->set_auto_commit(true);
+
 
 $res = new Response(true, $args);
     echo json_encode($res);

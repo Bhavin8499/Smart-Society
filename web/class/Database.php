@@ -77,6 +77,18 @@ class Database
         return $this->conn->insert_id;
     }
 
+    public function set_auto_commit($val = true){
+        $this->conn->autocommit(FALSE);
+    }
+
+    public function commit(){
+        $this->conn->commit();
+    }
+
+    public function rollback(){
+        $this->conn->rollback();
+    }
+
 }
 
 function generate_insert_query($args, $tbl_name = "")
