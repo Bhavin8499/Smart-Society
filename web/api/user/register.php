@@ -32,6 +32,7 @@ $affect = $db->run_query($qry);
 
 if($affect < 1){
     $db->rollback();
+    $db->set_auto_commit(true);
     $res = new Response(false, "Failed to register user");
     echo json_encode($res);
     return;
@@ -58,12 +59,10 @@ if($_POST["role"] == "Admin"){
         } 
       
     $arg1 = ["societyname" => $_POST["societyname"], "user_id" => $affect, "societycode" => $randomString];
-
-    $db->run_query($arg1, TABLE_SOCIETY);
-    
+    $db->run_query($arg1, TABLE_SOCIETY);    
     $args["societycode"] = $randomString;
 }
-elseif ($_POST["role"] == "Customer") {
+elseif ($_POST["role"] == "Security") {
     
     $soc_code = $_POST["societycode"];
     $qry = "select id from society where societycode='$soc_code'";
@@ -72,9 +71,51 @@ elseif ($_POST["role"] == "Customer") {
 
     if(!is_array()){
         $db->rollback();
+        $db->set_auto_commit(true);
+        $res = new Response(false, "No Society was found with given society code");
+        echo json_encode($res);
+        return;
     }
 
+    $society_id = $res["id"];
 
+    $argFlat = ["userid" =>$affect,
+     "flatname" => "Security Guard", 
+     "flatno" => "0", 
+     "society_id" => $society_id
+    ];
+
+    $qry = generate_insert_query($argFlat, TABLE_FLATOWNER);
+    $db->run_query($qry)
+
+}
+else{
+    
+        $soc_code = $_POST["societycode"];
+        $qry = "select id from society where societycode='$soc_code'";
+    
+        $res = $db->run_query($qry);
+    
+        if(!is_array()){
+            $db->rollback();
+            $db->set_auto_commit(true);
+            $res = new Response(false, "No Society was found with given society code");
+            echo json_encode($res);
+            return;
+        }
+    
+        $society_id = $res["id"];
+    
+        $argFlat = ["userid" =>$affect,
+         "flatname" => $_POST["flatname"], 
+         "flatno" => $_POST["flatno"], 
+         "society_id" => $society_id
+        ];
+    
+        $qry = generate_insert_query($argFlat, TABLE_FLATOWNER);
+        $db->run_query($qry)
+    
+    
 }
 
 $db->commit();
@@ -82,8 +123,8 @@ $db->set_auto_commit(true);
 
 
 $res = new Response(true, $args);
-    echo json_encode($res);
-    return;
+echo json_encode($res);
+return;
 
 
 ?>

@@ -12,9 +12,6 @@ class User
     public static $table_name = "user";
 
     public $user_id = 0;
-    public $user_name = "";
-    public $email = "";
-    public $phone_no = "";
 
     public function __construct($args = array())
     {
@@ -23,6 +20,7 @@ class User
             foreach($args as $key=>$val){
                 $this->$key = $val;
             } 
+            $this->user_id = $this->id;
         } else {
 
             $qry = "select * from user where id=" . $args;

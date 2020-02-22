@@ -26,6 +26,20 @@ if(!is_object($user)){
     return;
 }
 
+$db = Database::getInstance();
+$qry = "";
+if($user->role == "Admin")
+    $qry = "select id society_id,societycode from society where user_id=$user->user_id";
+else
+    $qry = "select fo.society_id, s.societycode from flat_owner fo, society s where fo.society_id=s.id and userid=$user->user_id";
+
+$res = $db->get_result($qry);
+
+if(is_array($res)){
+    $user->society_id = $res["society_id"];
+    $user->society_code = $res["societycode"];
+}
+
 $res = new Response(TRUE, $user);
 echo json_encode($res);
 

@@ -12,6 +12,7 @@ define("TABLE_SOCIETY","society");
 define("TABLE_MAINTANCE","maintance");
 define("TABLE_PAYMENTINTENT","paymentintent");
 define("TABLE_SECURITYCOMERS","security_comers");
+define("TABLE_FLATOWNER","flat_owner");
 
 #setting header
 #header("Content-type: application/json; charset=utf-8");
