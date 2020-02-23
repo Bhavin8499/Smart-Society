@@ -31,6 +31,8 @@ import androidx.annotation.Nullable;
 import com.google.gson.Gson;
 import com.sgh000575.smartsociety.model.UserModel;
 
+import org.json.JSONArray;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -38,23 +40,24 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-class SIModel {
+public class SIModel {
     private static SIModel ourInstance;
 
     static  private  String NORMAL_PREF = "normalprefrence";
     private static SharedPreferences sharedPreferences;
     private UserModel currentUser;
     static private String CURRENT_USER_KEY = "loggedinuser";
+    static private String CURRENT_FLATS_KEY = "flats";
 
-    static void init(Context context){
+    public static void init(Context context){
         ourInstance = new SIModel(context);
     }
 
-    static SIModel getInstance() {
+    public static SIModel getInstance() {
         return ourInstance;
     }
 
-    private SIModel(Context context) {
+    public SIModel(Context context) {
         sharedPreferences = context.getSharedPreferences(NORMAL_PREF, Context.MODE_PRIVATE);
     }
 
@@ -89,6 +92,15 @@ class SIModel {
     }
 
     public UserModel getUser(){
+        String str = sharedPreferences.getString(CURRENT_USER_KEY, null);
+
+        if(str == null){
+            return null;
+        }
+
+        Gson gson = new Gson();
+
+        currentUser = gson.fromJson(str, UserModel.class);
         return currentUser;
     }
 
@@ -98,6 +110,31 @@ class SIModel {
         editor.commit();
 
     }
+
+
+    public void storeFlatDetails(JSONArray jsonArray){
+        Gson gson = new Gson();
+        String json = gson.toJson(jsonArray);
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putString(CURRENT_FLATS_KEY,json);
+        editor.commit();
+
+    }
+
+    public JSONArray getFlatDetails(){
+
+        String str = sharedPreferences.getString(CURRENT_FLATS_KEY, null);
+
+        if(str != null){
+            JSONArray arr = new Gson().fromJson(str, JSONArray.class);
+            return arr;
+        }
+
+        return null;
+    }
+
 
 
 }

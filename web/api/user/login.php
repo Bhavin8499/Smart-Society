@@ -40,6 +40,15 @@ if(is_array($res)){
     $user->society_code = $res["societycode"];
 }
 
+
+if($user->role =="Security"){
+    $qry = "select flatno,flatname from flat_owner where society_id = $user->society_id and flatno!=0";
+
+    $res = $db->get_results($qry);
+    if(is_array($res))
+        $user->flat_details = $res;
+}
+
 $res = new Response(TRUE, $user);
 echo json_encode($res);
 

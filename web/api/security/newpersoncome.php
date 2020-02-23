@@ -3,7 +3,7 @@
 header("Content-type: application/json; charset=utf-8");
 include("../../config.php");
 
-$required_params = ["name", "flat_id"];
+$required_params = ["name", "flat_id", "reason"];
 
 foreach ($required_params as $value) {
     if(!key_exists($value, $_POST)){
@@ -16,7 +16,8 @@ foreach ($required_params as $value) {
 
 $args = [
     "name" => $_POST["name"],
-    "flat_id" => $_POST["flat_id"]
+    "flat_id" => $_POST["flat_id"],
+    "reason" => $_POST["reason"]
 ];
 
 $qry = generate_insert_query($args, TABLE_SECURITYCOMERS);

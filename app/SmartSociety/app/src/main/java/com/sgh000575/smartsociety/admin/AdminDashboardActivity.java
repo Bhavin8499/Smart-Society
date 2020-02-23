@@ -12,24 +12,32 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-public class AdminDashboardActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener {
+public class AdminDashboardActivity extends AppCompatActivity implements     AdminHomeFragment.OnFragmentInteractionListener,
+        ProfileFragment.OnFragmentInteractionListener,
+        AdminEventFragment.OnFragmentInteractionListener,
+        AdminMaintanceFragment.OnFragmentInteractionListener,
+        SettingFragment.OnFragmentInteractionListener {
 
-    Fragment homeFragment,profileFragment, eventFragment, settingFragment, activeFragment;
+    Fragment homeFragment,profileFragment, eventFragment, settingFragment, activeFragment, maintanceFragment;
     FragmentTransaction transaction;
     FragmentManager manager;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_dashboard);
 
-        BottomNavigationView navigationView = findViewById(R.id.navigation);
+        BottomNavigationView navigationView = findViewById(R.id.adminNavBar);
 
         navigationView.setOnNavigationItemSelectedListener(itemSelectedListener);
 
-        homeFragment = new HomeFragment();
+        homeFragment = new AdminHomeFragment();
         profileFragment = new ProfileFragment();
-        eventFragment = new EventFragment();
+        eventFragment = new AdminEventFragment();
+        maintanceFragment = new AdminMaintanceFragment();
         settingFragment = new SettingFragment();
 
 
@@ -38,6 +46,7 @@ public class AdminDashboardActivity extends AppCompatActivity implements HomeFra
 
         manager.beginTransaction().add(R.id.frame_container, profileFragment,"profile").hide(profileFragment).commit();
         manager.beginTransaction().add(R.id.frame_container, eventFragment,"EventFragment").hide(eventFragment).commit();
+        manager.beginTransaction().add(R.id.frame_container, maintanceFragment,"maintance").hide(maintanceFragment).commit();
         manager.beginTransaction().add(R.id.frame_container, settingFragment,"setting").hide(settingFragment).commit();
         manager.beginTransaction().add(R.id.frame_container, homeFragment,"home").commit();
         activeFragment = homeFragment;
@@ -60,6 +69,10 @@ public class AdminDashboardActivity extends AppCompatActivity implements HomeFra
                 case R.id.navigation_event:
                     manager.beginTransaction().hide(activeFragment).show(eventFragment).commit();
                     activeFragment = eventFragment;
+                    return true;
+                case R.id.navigation_maintance:
+                    manager.beginTransaction().hide(activeFragment).show(maintanceFragment).commit();
+                    activeFragment = maintanceFragment;
                     return true;
                 case R.id.navigation_setting:
                     manager.beginTransaction().hide(activeFragment).show(settingFragment).commit();

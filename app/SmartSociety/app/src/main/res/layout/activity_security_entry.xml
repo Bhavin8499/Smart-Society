@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".security.SecurityEntryActivity">
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".security.SecurityEntryActivity">
+    >
 
     <TextView
         style="@style/my_tv"
@@ -34,6 +40,7 @@
             android:textSize="15dp"
             />
         <EditText
+            android:id="@+id/txtPersonName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -55,7 +62,8 @@
             android:text="Flat To Visit :"
             android:textSize="15dp"
             />
-        <EditText
+        <AutoCompleteTextView
+            android:id="@+id/txtFlatName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -78,6 +86,7 @@
             android:textSize="15dp"
             />
         <EditText
+            android:id="@+id/txtReason"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -94,6 +103,21 @@
         android:background="@drawable/button_round_corner"
         android:text="Add Entry"
         android:textAllCaps="false"
+        android:onClick="addEntry"
         />
 
 </LinearLayout>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/button_round_corner"
+        android:text="Logout"
+        android:textAllCaps="false"
+        android:layout_margin="10dp"
+        android:onClick="logoutClicked"/>
+
+</RelativeLayout>

@@ -59,7 +59,7 @@ if($_POST["role"] == "Admin"){
         } 
       
     $arg1 = ["societyname" => $_POST["societyname"], "user_id" => $affect, "societycode" => $randomString];
-    $db->run_query($arg1, TABLE_SOCIETY);    
+    $db->run_query(generate_insert_query($arg1, TABLE_SOCIETY));    
     $args["societycode"] = $randomString;
 }
 elseif ($_POST["role"] == "Security") {
@@ -69,7 +69,7 @@ elseif ($_POST["role"] == "Security") {
 
     $res = $db->run_query($qry);
 
-    if(!is_array()){
+    if(!is_array($res)){
         $db->rollback();
         $db->set_auto_commit(true);
         $res = new Response(false, "No Society was found with given society code");
@@ -86,7 +86,7 @@ elseif ($_POST["role"] == "Security") {
     ];
 
     $qry = generate_insert_query($argFlat, TABLE_FLATOWNER);
-    $db->run_query($qry)
+    $db->run_query($qry);
 
 }
 else{
@@ -113,7 +113,7 @@ else{
         ];
     
         $qry = generate_insert_query($argFlat, TABLE_FLATOWNER);
-        $db->run_query($qry)
+        $db->run_query($qry);
     
     
 }

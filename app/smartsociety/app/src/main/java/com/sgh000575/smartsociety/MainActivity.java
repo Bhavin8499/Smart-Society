@@ -19,6 +19,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.JsonObject;
 import com.sgh000575.smartsociety.admin.AdminDashboardActivity;
 import com.sgh000575.smartsociety.model.UserModel;
+import com.sgh000575.smartsociety.security.SecurityEntryActivity;
 
 import org.json.JSONObject;
 
@@ -74,6 +75,11 @@ public class MainActivity extends AppCompatActivity {
                                 SIModel.getInstance().saveUser(user);
 
                                 UserModel model = SIModel.getInstance().getUser();
+
+                                if(user.role.equalsIgnoreCase("Security")){
+                                    SIModel.getInstance().storeFlatDetails(json.getJSONObject("data").getJSONArray("flat_details"));
+                                }
+
                                 loginUser(model);
 
                             }
@@ -119,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity( i );
             }
             else if(user.getRole().equalsIgnoreCase("Security")) {
-                Intent i = new Intent(getApplicationContext(),DashboardActivity.class);
+                Intent i = new Intent(getApplicationContext(), SecurityEntryActivity.class);
                 startActivity( i );
             }
             else{
