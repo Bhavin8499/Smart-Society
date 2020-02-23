@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -54,15 +61,15 @@
             android:text="Date Of Birth:"
             android:textSize="15dp"
             />
-        <EditText
+        <DatePicker
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Date of Birth"
-            android:inputType="date"
+            android:padding="10dp"
             android:id="@+id/add_mem_bdate"
-            style="@style/my_et"
-            />
+            android:spinnersShown="true"
+            android:datePickerMode="spinner"
+            android:calendarViewShown="false"
+        />
     </LinearLayout>
 
     <LinearLayout
@@ -87,6 +94,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="MALE"
+                android:id="@+id/male"
                 android:textSize="10dp"
                 android:layout_weight="1"
                 style="@style/my_et"/>
@@ -116,3 +124,4 @@
 
         />
 </LinearLayout>
+</ScrollView>

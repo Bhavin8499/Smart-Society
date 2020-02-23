@@ -28,7 +28,7 @@ $db = Database::getInstance();
 $affect = $db->run_query($qry);
 
 if($affect < 1){
-    $res = new Response(false, "Failed to register member details");
+    $res = new Response(false, "Failed to add member details");
     echo json_encode($res);
     return;
 }
