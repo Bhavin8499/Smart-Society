@@ -35,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
     EditText txtEmail, txtPassword;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -73,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
                             if(json.getBoolean("status")){
                                 UserModel user = new UserModel(json.getJSONObject("data"));
                                 SIModel.getInstance().saveUser(user);
-
                                 UserModel model = SIModel.getInstance().getUser();
 
                                 if(user.role.equalsIgnoreCase("Security")){
@@ -81,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
                                 }
 
                                 loginUser(model);
-
                             }
                             else{
                                 Toast.makeText(MainActivity.this, "Failed To login please validate your email and password", Toast.LENGTH_SHORT).show();
@@ -90,11 +89,8 @@ public class MainActivity extends AppCompatActivity {
                             //Toast.makeText(MainActivity.this, response, Toast.LENGTH_SHORT).show();
                         }
                         catch (Exception e){
-
                         }
-
                         //JsonObject json = new JsonObject(response);
-
                     }
                 }, new Response.ErrorListener() {
                     @Override
@@ -116,21 +112,23 @@ public class MainActivity extends AppCompatActivity {
             }
         } );
     }
-
     private void loginUser(UserModel user){
-
         try {
             if(user.getRole().equalsIgnoreCase("Admin")){
                 Intent i = new Intent(getApplicationContext(), AdminDashboardActivity.class);
                 startActivity( i );
+                finish();
+
             }
             else if(user.getRole().equalsIgnoreCase("Security")) {
                 Intent i = new Intent(getApplicationContext(), SecurityEntryActivity.class);
                 startActivity( i );
+                finish();
             }
             else{
                 Intent i = new Intent(getApplicationContext(),DashboardActivity.class);
                 startActivity( i );
+                finish();
             }
         }
         catch (Exception e){
