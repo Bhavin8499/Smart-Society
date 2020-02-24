@@ -24,30 +24,6 @@ public class UserModel {
         this.user_id = user_id;
     }
 
-    public String getUser_name() {
-        return name;
-    }
-
-    public void setUser_name(String user_name) {
-        this.name = user_name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhone_no() {
-        return phoneno;
-    }
-
-    public void setPhone_no(String phone_no) {
-        this.phoneno = phone_no;
-    }
-
     public String getId() {
         return id;
     }
@@ -62,6 +38,14 @@ public class UserModel {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -88,12 +72,20 @@ public class UserModel {
         this.role = role;
     }
 
+    public String getSociety_id() {
+        return society_id;
+    }
+
     public void setSociety_id(String society_id) {
         this.society_id = society_id;
     }
 
-    public String getSociety_id() {
-        return society_id;
+    public String getSociety_code() {
+        return society_code;
+    }
+
+    public void setSociety_code(String society_code) {
+        this.society_code = society_code;
     }
 
     public UserModel(JSONObject object) {

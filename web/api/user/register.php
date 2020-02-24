@@ -70,7 +70,7 @@ else if ($_POST["role"] == "Security") {
 
     $res = $db->run_query($qry);
 
-    if(is_null($res)){
+    if(!is_array($res)){
         $db->rollback();
         $db->set_auto_commit(true);
         $res = new Response(false, "No Society was found with given society code");

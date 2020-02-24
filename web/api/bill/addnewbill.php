@@ -3,7 +3,7 @@
 header("Content-type: application/json; charset=utf-8");
 include("../../config.php");
 
-$required_params = ["name", "flat_id", "reason"];
+$required_params = [];//["user_id", "uploader_id", "bill_name", "bill_amount", "img"];
 
 foreach ($required_params as $value) {
     if(!key_exists($value, $_POST)){
@@ -15,12 +15,19 @@ foreach ($required_params as $value) {
 }
 
 $args = [
-    "name" => $_POST["name"],
-    "flat_id" => $_POST["flat_id"],
-    "reason" => $_POST["reason"]
+    "user_id" => $_POST["user_id"],
+    "uploader_id" => $_POST["uploader_id"],
+    "bill_name" => $_POST["bill_name"],
+    "bill_amount" => $_POST["bill_amount"]
 ];
 
-$qry = generate_insert_query($args, TABLE_SECURITYCOMERS);
+
+$demo = "bill-".time().".jpg";
+
+
+move_uploaded_file($_FILES["img"]["tmp_name"], BILL_IMAGE_PATH.$demo)
+/*
+$qry = generate_insert_query($args, TABLE_MAINTANCE);
 $db = Database::getInstance();
 
 $affect = $db->run_query($qry);
@@ -33,14 +40,17 @@ if($affect < 1){
 
 
 $args = [
-    "person_id" => $affect,
-    "name" => $_POST["name"],
-    "flat_id" => $_POST["flat_id"]
+    "maintance_id" => $affect,
+    "maintance_name" => $_POST["maintance_name"],
+    "maintance_date" => $_POST["maintance_date"], 
+    "price" => $_POST["price"],
+    "uploader_id" => $_POST["user_id"],
+    "society_id" => $_POST["society_id"]
 ];
 
 $res = new Response(true, $args);
     echo json_encode($res);
     return;
-
+*/
 
 ?>
