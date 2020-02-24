@@ -4,7 +4,7 @@ define("CLASS_PATH", __DIR__."/class/");
 define("ROOT_IMAGE_PATH",__DIR__."/images/");
 define("GALLERY_IMAGE_PATH", __DIR__."/images/gallery/");
 define("EVENT_IMAGE_PATH", __DIR__."/images/event/");
-define("BILL_IMAGE_PATH", __DIR__."/images/bills/");
+define("BILL_IMAGE_PATH", __DIR__."\images\bills\\");
 
 define("TABLE_USER","user");
 define("TABLE_MEMBER","member");
