@@ -246,6 +246,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:hint="Flat Name"
+                android:inputType="text"
                 style="@style/my_btn"
                 android:id="@+id/et_flat_name"
                 />

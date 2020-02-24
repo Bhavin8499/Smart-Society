@@ -15,6 +15,7 @@ public class UserModel {
     public String role;
     public String society_id;
     public String society_code;
+    public String flat_id;
 
     public String getUser_id() {
         return user_id;
@@ -88,6 +89,14 @@ public class UserModel {
         this.society_code = society_code;
     }
 
+    public String getFlat_id() {
+        return flat_id;
+    }
+
+    public void setFlat_id(String flat_id) {
+        this.flat_id = flat_id;
+    }
+
     public UserModel(JSONObject object) {
 
         try {
@@ -95,15 +104,19 @@ public class UserModel {
             society_id = object.getString("society_id");
             email = object.getString("email");
             society_code = object.getString("society_code");
-            id = object.getString("id");
+            id = object.getString("user_id");
             name = object.getString("name");
             password = object.getString("password");
             phoneno = object.getString("phoneno");
             role = object.getString("role");
+            if(!role.equalsIgnoreCase( "Admin" ))
+                flat_id = object.getString( "flat_id" );
         }
         catch (Exception e){
             Log.d("SocietyError", e.getMessage());
         }
+
+
 
     }
 }

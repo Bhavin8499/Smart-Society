@@ -21,7 +21,7 @@ $args = [
     "flat_id" => $_POST["flat_id"]
 ];
 
-$qry = "update ".TABLE_MEMBER." set ".generate_update_query($args)."where id='".$_POST["member_id"]."'";
+$qry = "update ".TABLE_MEMBER." set ".generate_update_query($args)."where flatno='".$_POST["flat_id"]."'";
 $db = Database::getInstance();
 
 $affect = $db->run_query($qry);

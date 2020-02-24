@@ -74,14 +74,14 @@ public class maintenance extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), error.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), error.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         }){
             @Override
             protected Map<String, String> getParams()
             {
                 Map<String, String>  params = new HashMap<String, String>();
-                params.put("society_id", "1");
+                params.put("society_id", SIModel.getInstance().getUser().society_id);
                // params.put( "society_id",SIModel.getInstance().getUser().getSociety_id());
                 return params;
             }

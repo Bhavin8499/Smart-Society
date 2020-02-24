@@ -47,7 +47,7 @@ public class HomeFragment extends Fragment implements HomeRecyclerViewAdapter.On
         HomeRecyclerViewAdapter adapter = new HomeRecyclerViewAdapter(getActivity(),menu,menu_img);
         adapter.setListner(this);
         home_rv.setAdapter(adapter);
-       // society_id.setText(SIModel.getInstance().getUser().society_code);
+        society_id.setText(SIModel.getInstance().getUser().society_code);
 
         return view;
     }

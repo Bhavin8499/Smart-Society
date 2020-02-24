@@ -60,7 +60,7 @@ public class Add_Member extends AppCompatActivity {
         mem_bdate.setOnDateChangedListener( new DatePicker.OnDateChangedListener() {
             @Override
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                date = ""+dayOfMonth+"/"+(monthOfYear+1)+"/"+year;
+                date = year+"-"+(monthOfYear+1)+"-"+dayOfMonth;
                // Toast.makeText( getApplicationContext() ,date,Toast.LENGTH_LONG ).show();
             }
         } );
@@ -83,7 +83,6 @@ public class Add_Member extends AppCompatActivity {
                                     view_profile.putExtra( "mem_dob",data.getString( "dob" ) );
                                     startActivity( view_profile );
                                     finish();
-
                             }
                             else{
                                 Toast.makeText(getApplicationContext(), "Failed To Add Member", Toast.LENGTH_SHORT).show();
@@ -107,7 +106,7 @@ public class Add_Member extends AppCompatActivity {
                         params.put("name", mem_name.getText().toString());
                         params.put("gender", gender);
                         params.put( "dob",date);
-                        params.put( "flat_id","1" );
+                        params.put( "flat_id",SIModel.getInstance().getUser().flat_id);
                         return params;
                     }
                 };

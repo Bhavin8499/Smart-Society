@@ -16,7 +16,6 @@ public final class ApiURL {
     public static String API_UPD_MEMBER = baseURL+"member/updatemember.php";
     public static String API_DEL_MEMBER = baseURL+"member/deletemember.php";
     public static String  API_GET_MAINTENENCE = baseURL+"maintance/getmaintancedetails.php";
-    public static String API_DEL_MEMBER = baseURL+"member/deletemember.php";    
     public static String API_SECUIRY_NEW_MEMBER_COME = baseURL+"security/newpersoncome.php";
     public static String API_GET_ALL_MAINTANCE = baseURL+"maintance/getmaintancedetails.php";
 

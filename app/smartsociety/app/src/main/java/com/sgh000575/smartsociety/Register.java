@@ -31,7 +31,7 @@ public class Register extends AppCompatActivity {
 
     LinearLayout subl_soci_code,subl_soci_name,subl_flat_name,subl_flat_no;
 
-    EditText fname,lname,soci_name,address,email,pass,phoneno,soci_code,flat_name,flat_no;
+    EditText fname,lname,soci_name,email,pass,phoneno,soci_code,flat_name,flat_no;
 
     Spinner user_type;
     String utype;
@@ -141,15 +141,15 @@ public class Register extends AppCompatActivity {
                         params.put( "phoneno",phoneno.getText().toString() );
                         params.put( "role",utype);
                         //if(utype.equals( "Admim" )) {
-                            params.put( "societyname",soci_name.getText().toString());
+                            params.put( "societyname",soci_name.getText().toString().trim());
                         //}
                         //else if(utype.equals( "Security" )) {
-                            params.put( "societycode", soci_code.getText().toString() );
+                            params.put( "societycode", soci_code.getText().toString().trim() );
                         //}
                         //else {
-                            params.put( "societycode", soci_code.getText().toString());
-                            params.put( "flatno", flat_no.getText().toString() );
-                            params.put( "flatname", flat_name.getText().toString() );
+                          //  params.put( "societycode", soci_code.getText().toString().trim());
+                            params.put( "flatno", flat_no.getText().toString().trim() );
+                            params.put( "flatname", flat_name.getText().toString().trim() );
                         //}
                         return params;
                     }
@@ -168,7 +168,6 @@ public class Register extends AppCompatActivity {
                 Intent i = new Intent(getApplicationContext(), AdminDashboardActivity.class);
                 startActivity( i );
                 finish();
-
             }
             else if(user.getRole().equalsIgnoreCase("Security")) {
                 Intent i = new Intent(getApplicationContext(),DashboardActivity.class);
@@ -182,7 +181,7 @@ public class Register extends AppCompatActivity {
             }
         }
         catch (Exception e){
-
+            System.out.println( e.getStackTrace() );
         }
     }
 

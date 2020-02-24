@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -113,7 +114,8 @@ public class ProfileFragment extends Fragment {
                         member_rv.setAdapter( prva );
                     }
                     else{
-                        Toast.makeText(getActivity(), "Failed To View Member", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getActivity(), "Failed To View Member", Toast.LENGTH_SHORT).show();
+                        Log.e("Error","Fail To Login");
                     }
                 }
                 catch (Exception e){
@@ -130,7 +132,7 @@ public class ProfileFragment extends Fragment {
             protected Map<String, String> getParams()
             {
                 Map<String, String>  params = new HashMap<String, String>();
-                params.put("flat_id", "1");
+                params.put("flat_id", SIModel.getInstance().getUser().flat_id);
                 return params;
             }
         };

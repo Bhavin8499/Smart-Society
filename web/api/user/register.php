@@ -44,7 +44,8 @@ $args = [
     "name" => $_POST["name"],
     "email" => $_POST["email"],
     "phoneno" => $_POST["phoneno"], 
-    "role" => $_POST["role"]
+    "role" => $_POST["role"],
+    "password" => $_POST["password"]
 ];
 
 if($_POST["role"] == "Admin"){
@@ -61,7 +62,7 @@ if($_POST["role"] == "Admin"){
     $arg1 = ["societyname" => $_POST["societyname"], "user_id" => $affect, "societycode" => $randomString];
     $qry = generate_insert_query($arg1, TABLE_SOCIETY);
     $args["society_id"] = $db->run_query($qry);    
-    $args["societycode"] = $randomString;
+    $args["society_code"] = $randomString;
 }
 else if ($_POST["role"] == "Security") {
     
@@ -78,8 +79,8 @@ else if ($_POST["role"] == "Security") {
         return;
     }
 
-    //    $society_id = $res["id"];
-    $society_id = $res;
+        $society_id = $res["id"];
+    //$society_id = $res;
 
     $argFlat = ["userid" =>$affect,
      "flatname" => "Security Guard", 
@@ -88,27 +89,30 @@ else if ($_POST["role"] == "Security") {
     ];
 
     $qry = generate_insert_query($argFlat, TABLE_FLATOWNER);
-    $db->run_query($qry);
+    $flat_id = $db->run_query($qry);
 
+    $args["flat_id"] = $flat_id;
+    $args["society_code"] = $soc_code;
+    $args["society_id"] = $res["id"];
 }
 else{
     
         $soc_code = $_POST["societycode"];
-        $qry = "select id from society where societycode='$soc_code'";
+        $qry = "SELECT * FROM `society` WHERE societycode='".$soc_code."'";
     
-        $res = $db->run_query($qry);
+        $res = $db->get_result($qry);
     
-        if(is_null($res)){
+        if(!is_array($res)){
             $db->rollback();
             $db->set_auto_commit(true);
-            $res = new Response(false, "No Society was found with given society code");
+            $res = new Response(false, "No Society was found with given society code ".$soc_code);
             echo json_encode($res);
             return;
         }
     
         
-    //    $society_id = $res["id"];
-        $society_id = $res;
+        $society_id = $res["id"];
+     //   $society_id = $res;
     
         $argFlat = ["userid" =>$affect,
          "flatname" => $_POST["flatname"], 
@@ -117,8 +121,11 @@ else{
         ];
     
         $qry = generate_insert_query($argFlat, TABLE_FLATOWNER);
-        $db->run_query($qry);
-    
+        $flat_id = $db->run_query($qry);
+
+        $args["flat_id"] = $flat_id;
+        $args["society_code"] = $soc_code;
+        $args["society_id"] = $res["id"];
     
 }
 
