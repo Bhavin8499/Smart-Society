@@ -22,7 +22,7 @@ public class HomeFragment extends Fragment implements HomeRecyclerViewAdapter.On
     RecyclerView home_rv;
     TextView society_id;
     String []menu ;
-    int []menu_img = {R.drawable.bills,R.drawable.rules,R.drawable.meeting,R.drawable.emergency,R.drawable.contact_us,R.drawable.complain};;
+    int []menu_img = {R.drawable.bills,R.drawable.rules,R.drawable.meeting,R.drawable.emergency,R.drawable.contact_us,R.drawable.complain,R.drawable.maintenence};
 
     public HomeFragment() {
         // Required empty public constructor
@@ -47,7 +47,7 @@ public class HomeFragment extends Fragment implements HomeRecyclerViewAdapter.On
         HomeRecyclerViewAdapter adapter = new HomeRecyclerViewAdapter(getActivity(),menu,menu_img);
         adapter.setListner(this);
         home_rv.setAdapter(adapter);
-        society_id.setText(SIModel.getInstance().getUser().society_code);
+       // society_id.setText(SIModel.getInstance().getUser().society_code);
 
         return view;
     }
@@ -128,6 +128,9 @@ public class HomeFragment extends Fragment implements HomeRecyclerViewAdapter.On
                 break;
             case 5:
                 intent = new Intent(getActivity().getApplicationContext(), Rules.class);
+                break;
+            case 6:
+                intent = new Intent(getActivity().getApplicationContext(), maintenance.class);
                 break;
         }
 

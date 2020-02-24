@@ -25,6 +25,7 @@
         <activity android:name=".admin.AddBillActivity" />
         <activity android:name=".Bill" />
         <activity android:name=".Rules" />
+        <activity android:name=".maintenance" />
         <activity android:name=".View_Member" />
         <activity android:name=".Add_Member" />
         <activity android:name=".Register" />

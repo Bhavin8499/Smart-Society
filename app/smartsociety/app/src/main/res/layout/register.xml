@@ -82,6 +82,76 @@
                 style="@style/my_et"
                 />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:background="@drawable/upperofbackground">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/my_tv"
+                android:text="Email:"
+                android:inputType="textEmailAddress"
+                android:textSize="15dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="xyz123@abc.com"
+                android:id="@+id/et_email"
+                style="@style/my_btn"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:background="@drawable/upperofbackground">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/my_tv"
+                android:text="Password:"
+                android:textSize="15dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:id="@+id/et_password"
+                style="@style/my_btn"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:background="@drawable/upperofbackground">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/my_tv"
+                android:text="Mobile No.:"
+                android:textSize="15dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Mobile Number"
+                android:inputType="phone"
+                android:id="@+id/et_mobile"
+                style="@style/my_btn"
+                />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -136,115 +206,51 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_margin="10dp"
-            android:background="@drawable/upperofbackground">
+            android:visibility="gone"
+            android:background="@drawable/upperofbackground"
+            android:id="@+id/subl_flat_no">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/my_tv"
-                android:text="Address:"
+                android:text="Flat Number:"
                 android:textSize="15dp"
                 />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:hint="Address"
+                android:hint="Flat Number"
                 style="@style/my_btn"
-                android:id="@+id/et_soci_addr"
+                android:id="@+id/et_flat_no"
                 />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_margin="10dp"
-            android:background="@drawable/upperofbackground">
+            android:visibility="gone"
+            android:background="@drawable/upperofbackground"
+            android:id="@+id/subl_flat_name">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/my_tv"
-                android:text="Email:"
-                android:inputType="textEmailAddress"
+                android:text="Flat Name:"
                 android:textSize="15dp"
                 />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:hint="xyz123@abc.com"
-                android:id="@+id/et_email"
+                android:hint="Flat Name"
                 style="@style/my_btn"
+                android:id="@+id/et_flat_name"
                 />
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="10dp"
-            android:background="@drawable/upperofbackground">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/my_tv"
-                android:text="Password:"
-                android:textSize="15dp"
-                />
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:id="@+id/et_password"
-                style="@style/my_btn"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="10dp"
-            android:background="@drawable/upperofbackground">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/my_tv"
-                android:text="Confirm Password:"
-                android:textSize="15dp"
-                />
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:hint="Confirm Password"
-                android:inputType="textPassword"
-                android:id="@+id/et_cn_password"
-                style="@style/my_btn"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="10dp"
-            android:background="@drawable/upperofbackground">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/my_tv"
-                android:text="Mobile No.:"
-                android:textSize="15dp"
-                />
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:hint="Mobile Number"
-                android:inputType="phone"
-                android:id="@+id/et_mobile"
-                style="@style/my_btn"
-                />
-        </LinearLayout>
+
         <Button
             android:layout_width="200dp"
             android:layout_marginBottom="7dp"

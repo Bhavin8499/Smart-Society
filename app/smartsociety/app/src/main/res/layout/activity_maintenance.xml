@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Bill">
+    tools:context=".maintenance">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
         android:gravity="right"
         android:textSize="30dp"/>
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/bill_rv"
+        android:id="@+id/maintenence_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp" />

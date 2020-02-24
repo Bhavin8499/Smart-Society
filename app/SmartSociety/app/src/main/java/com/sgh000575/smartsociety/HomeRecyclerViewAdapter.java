@@ -86,7 +86,6 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
             menu_img = itemView.findViewById(R.id.card_view_image);
             ll = itemView.findViewById(R.id.home_ll);
 
-
         }
     }
 

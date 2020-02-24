@@ -59,17 +59,18 @@ if($_POST["role"] == "Admin"){
         } 
       
     $arg1 = ["societyname" => $_POST["societyname"], "user_id" => $affect, "societycode" => $randomString];
-    $db->run_query($arg1, TABLE_SOCIETY);    
+    $qry = generate_insert_query($arg1, TABLE_SOCIETY);
+    $args["society_id"] = $db->run_query($qry);    
     $args["societycode"] = $randomString;
 }
-elseif ($_POST["role"] == "Security") {
+else if ($_POST["role"] == "Security") {
     
     $soc_code = $_POST["societycode"];
     $qry = "select id from society where societycode='$soc_code'";
 
     $res = $db->run_query($qry);
 
-    if(!is_array()){
+    if(is_null($res)){
         $db->rollback();
         $db->set_auto_commit(true);
         $res = new Response(false, "No Society was found with given society code");
@@ -77,7 +78,8 @@ elseif ($_POST["role"] == "Security") {
         return;
     }
 
-    $society_id = $res["id"];
+    //    $society_id = $res["id"];
+    $society_id = $res;
 
     $argFlat = ["userid" =>$affect,
      "flatname" => "Security Guard", 
@@ -86,7 +88,7 @@ elseif ($_POST["role"] == "Security") {
     ];
 
     $qry = generate_insert_query($argFlat, TABLE_FLATOWNER);
-    $db->run_query($qry)
+    $db->run_query($qry);
 
 }
 else{
@@ -96,7 +98,7 @@ else{
     
         $res = $db->run_query($qry);
     
-        if(!is_array()){
+        if(is_null($res)){
             $db->rollback();
             $db->set_auto_commit(true);
             $res = new Response(false, "No Society was found with given society code");
@@ -104,7 +106,9 @@ else{
             return;
         }
     
-        $society_id = $res["id"];
+        
+    //    $society_id = $res["id"];
+        $society_id = $res;
     
         $argFlat = ["userid" =>$affect,
          "flatname" => $_POST["flatname"], 
@@ -113,7 +117,7 @@ else{
         ];
     
         $qry = generate_insert_query($argFlat, TABLE_FLATOWNER);
-        $db->run_query($qry)
+        $db->run_query($qry);
     
     
 }
